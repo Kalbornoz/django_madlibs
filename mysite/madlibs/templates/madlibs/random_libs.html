@@ -1,0 +1,20 @@
+<!--prettier-ignore-->
+{% extends 'madlibs/base.html'%}
+{% block title%}RandomLib Result!{% endblock %}
+{% block body %}
+<div class="d-flex align-items-center min-vh-100">
+  <div class="container shadow bg-light rounded py-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mb-4">
+          <h1 class="pb-2">{{ story.story_name }}</h1>
+          <p class="h5 text-muted mb-4">{{ story.story_content }}</p>
+        </div>
+        <div class="d-flex mb-4 justify-content-end">
+          <a href="{% url 'index' %} " class="btn btn-primary">Go Back</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

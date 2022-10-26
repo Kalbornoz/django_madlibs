@@ -1,0 +1,42 @@
+{% extends 'madlibs/base.html' %} {% block title %}Home{% endblock %}
+<!--prettier-ignore-->
+{% block body %}
+<div class="d-flex align-items-center min-vh-100">
+  <div class="container shadow bg-light rounded py-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-10">
+            <div class="mb-4">
+              <h1 class="pb-2">Please enter in the fields:</h1>
+              <p class="h5 text-muted mb-4">
+                Enter in an Adjective, Place, Verb, or Person for each field
+              </p>
+            </div>
+          </div>
+          <div class="col-md-2">
+            {% include 'madlibs/informationModal.html' %}
+          </div>
+        </div>
+        <hr />
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group pb-4">
+            <div class="row">
+              {% for field in form %}
+              <div class="col-md-6">
+                <div class="form-group mb-4">{{ field.label }} {{ field }}</div>
+              </div>
+              {% endfor%}
+            </div>
+          </div>
+          <div class="d-flex mb-4 justify-content-end">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
